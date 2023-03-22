@@ -8,7 +8,8 @@ for (int i = 0; i < 10; i++)
     if (i % 2 != 0)
         continue;
 
-    counterProviders.Add(() => i * 3);
+    int counterValue = i;
+    counterProviders.Add(() => counterValue * 3);
     Console.WriteLine($"From 'for': {i}.");
 }
 
