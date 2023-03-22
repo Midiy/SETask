@@ -3,7 +3,7 @@
 List<Func<int>> counterProviders = new();
 
 for (int i = 0; i < 10; i++)
-    counterProviders.Add(() => i);
+    counterProviders.Add(() => i * 3);
 
 IEnumerable<string> outputStrings = counterProviders.Select(provider => provider?.Invoke().ToString("X") ?? string.Empty);
 foreach (string outputString in outputStrings)
