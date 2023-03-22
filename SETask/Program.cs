@@ -4,6 +4,10 @@ List<Func<int>> counterProviders = new();
 
 for (int i = 0; i < 10; i++)
 {
+    // HACK: Really bad way to do this, demonstration purposes only.
+    if (i % 2 != 0)
+        continue;
+
     counterProviders.Add(() => i * 3);
     Console.WriteLine($"From 'for': {i}.");
 }
