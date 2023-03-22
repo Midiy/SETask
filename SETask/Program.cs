@@ -1,2 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+
+List<Func<int>> counterProviders = new();
+
+for (int i = 0; i < 10; i++)
+    counterProviders.Add(() => i);
+
+IEnumerable<string> outputStrings = counterProviders.Select(provider => provider?.Invoke().ToString("X") ?? string.Empty);
+foreach (string outputString in outputStrings)
+    Console.WriteLine(outputString);
